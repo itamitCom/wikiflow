@@ -19,3 +19,8 @@ run-analytics-consumer:
 	mvn clean package -pl consumer
 	docker-compose -f docker-compose-analytics-consumer.yaml build
 	docker-compose -f docker-compose-analytics-consumer.yaml up
+
+run-delta-read-consumer:
+	mvn clean package -pl consumer
+	docker-compose -f docker-compose-delta-read-consumer.yaml build
+	docker-compose -f docker-compose-delta-read-consumer.yaml up

@@ -25,9 +25,24 @@ make run-structured-consumer
 make run-analytics-consumer
 ```
 
+- Consumer reader from the folder in which Analytics Consumer writes, which will simply display it on the console, run:
+```bash
+make run-delta-read-consumer
+```
+
 You could also access the SparkUI for this Job at http://localhost:4040/jobs
 
+```bash
+docker-compose exec postgres psql -U consumer
+\d
+select * from types_count limit 10;
+select * from types_count where load_dttm = (select max(load_dttm) from types_count);
+select * from types_count where load_dttm = (select max(load_dttm) from types_count) order by count desc;
+```
 
+```bash
+docker stats
+```
 
 ## Known issues
 

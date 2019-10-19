@@ -1,0 +1,16 @@
+version: "3"
+services:
+  delta-read-consumer:
+    build:
+      context: ./consumer
+      dockerfile: Dockerfile-delta-read
+    networks:
+      - wikiflow-network
+    volumes:
+      - delta:/storage
+networks:
+  wikiflow-network:
+    external:
+      name: wikiflow-network
+volumes:
+  delta:
